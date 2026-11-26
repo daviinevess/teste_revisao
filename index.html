@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cadastro de Motores em Python | CentroWEG - Jaraguá do Sul</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topo">
+    <div class="container">
+      <span class="badge-local">CentroWEG • SENAI / WEG — Jaraguá do Sul, SC</span>
+      <h1>Sistema de Cadastro de Motores em Python</h1>
+      <p class="subtitulo">
+        Documentação técnica do protótipo monolítico desenvolvido em memória utilizando apenas funções e listas (arrays).
+      </p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card destaque-local">
+      <h2>Sobre o Desenvolvimento</h2>
+      <p>
+        Este projeto foi desenvolvido no <strong>CentroWEG</strong>, unidade do <strong>SENAI</strong> localizada dentro do parque fabril da <strong>WEG</strong> em <strong>Jaraguá do Sul (SC)</strong>. O objetivo da atividade é praticar lógica de programação, validação de dados e manipulação de estruturas em memória antes da integração com bancos de dados.
+      </p>
+      <div class="tags">
+        <span>Python 3</span>
+        <span>Estruturas em Memória</span>
+        <span>Programação Procedural</span>
+        <span>CentroWEG</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Arquitetura do Código (<code>cadastro_motores.py</code>)</h2>
+      <p>
+        O programa opera de forma <strong>monolítica</strong> em um único arquivo, dispensando dependências externas ou banco de dados. Os registros são armazenados em uma lista global de dicionários (<code>motores = []</code>) com controle incremental de identificador (<code>proximo_id</code>).
+      </p>
+
+      <div class="grid-funcoes">
+        <article class="funcao-item">
+          <h3><code>cadastrar_motor()</code></h3>
+          <p>Valida se o código já existe, verifica se potência (CV), tensão (V) e RPM são maiores que zero e adiciona o novo dicionário à lista.</p>
+        </article>
+
+        <article class="funcao-item">
+          <h3><code>listar_motores()</code></h3>
+          <p>Retorna todos os motores armazenados atualmente no array em memória para consulta ou exibição.</p>
+        </article>
+
+        <article class="funcao-item">
+          <h3><code>buscar_motor(termo)</code></h3>
+          <p>Realiza busca case-insensitive por ID exato ou correspondência parcial em código, modelo ou fabricante.</p>
+        </article>
+
+        <article class="funcao-item">
+          <h3><code>atualizar_status_motor()</code></h3>
+          <p>Altera a situação operacional do equipamento entre os estados permitidos: <strong>ativo</strong>, <strong>manutencao</strong> ou <strong>inativo</strong>.</p>
+        </article>
+
+        <article class="funcao-item">
+          <h3><code>remover_motor(id)</code></h3>
+          <p>Percorre o array com <code>enumerate()</code> e remove o registro correspondente utilizando <code>pop()</code>.</p>
+        </article>
+
+        <article class="funcao-item">
+          <h3><code>menu_interativo()</code></h3>
+          <p>Gerencia o loop de interface no terminal (CLI), capturando entradas do usuário e tratando erros de validação via <code>try/except</code>.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Modelo de Dados Utilizado</h2>
+      <p>Cada motor cadastrado é representado como um objeto (dicionário Python) dentro da lista <code>motores</code>:</p>
+      <pre><code>{
+  "id": 1,
+  "codigo": "MOT-001",
+  "modelo": "W22 IR3",
+  "fabricante": "WEG",
+  "potencia_cv": 15.0,
+  "tensao_v": 380,
+  "rpm": 1760,
+  "status": "ativo"
+}</code></pre>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p>Desenvolvido no <strong>CentroWEG</strong> — SENAI / WEG • Jaraguá do Sul, Santa Catarina</p>
+    </div>
+  </footer>
+</body>
+</html>
